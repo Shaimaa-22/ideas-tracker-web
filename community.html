@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community | IdeasTracker</title>
+    <!-- ملفات التنسيق -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="community.css">
+    <!-- مكتبة الأيقونات -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- شريط التنقل الرئيسي في الأعلى -->
+  <nav class="navbar">
+    <div class="logo">IdeasTracker</div>
+    <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+      <li><a href="communities.html">Communities</a></li>
+      <li><a href="create-community.html">New Community</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="my-communities.html">My Communities</a></li>
+      <li><a href="login.html">Logout</a></li>
+
+    </ul>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </nav>
+    <!-- القائمة الجانبية (بتظهر بالموبايل عند الضغط على ☰) -->
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <a href="index.html">Home</a>
+    <a href="communities.html">Communities</a>
+    <a href="create-community.html">New Community</a>
+    <a href="profile.html">Profile</a> 
+    <a href="my-communities.html">My Communities</a>
+    <a href="login.html">Logout</a>
+  </div>
+  <!-- ترويسة الصفحة تحتوي على اسم المجتمع ووصفه -->
+  <header class="community-header">
+    <h1 id="communityName">Loading...</h1>
+    <p id="communityDescription" class="community-description"></p>
+  </header>
+  <!-- الأفكار التابعة لهذا المجتمع -->
+  <main class="ideas-container">
+    <div id="ideaContainer">
+            <!-- تظهر عند تحميل الصفحة -->
+      <div class="loading-state">
+        <i data-lucide="loader-2" class="animate-spin"></i>
+        <p>Loading ideas...</p>
+      </div>
+    </div>
+  </main>
+  <!-- سكريبت لفتح/إغلاق القائمة الجانبية -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("open");
+    }
+        // تفعيل أيقونات Lucide بعد تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+    <!-- تحميل المنطق الخاص بالمجتمع (جلب البيانات وعرضها) -->
+  <script type="module" src="community.js"></script>
+</body>
+</html>

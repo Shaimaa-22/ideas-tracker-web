@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- معلومات الميتا وتهيئة الصفحة -->
+  <link rel="icon" href="data:,">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="View and manage your idea details">
+  <title>IdeasTracker - Idea Details</title>
+  <!-- تحميل الخطوط والأيقونات والتنسيقات -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <!-- زر لفتح القائمة الجانبية -->
+  <div id="sidebar-toggle" class="tooltip">
+    <i data-lucide="menu"></i>
+    <span class="tooltip-text">Open Menu</span>
+  </div>
+
+  <!-- القائمة الجانبية -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-menu">
+      <a href="index.html" class="menu-item"><span>Home</span></a>
+      <a href="communities.html" class="menu-item"><span>Communities</span></a>
+      <a href="my-communities.html" class="menu-item"><span>My Communities</span></a>
+      <a href="create-community.html" class="menu-item"><span>Create Community</span></a>
+      <a href="profile.html" class="menu-item"><span>Profile</span></a>
+    </div>
+  </div>
+
+  <!-- تراكب لإغلاق القائمة الجانبية -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+  <!-- 🧱 محتوى الصفحة الرئيسي -->
+  <div class="container">
+    <div class="app-container">
+      <!-- العنوان والعودة -->
+      <div class="app-header">
+        <div class="header-left">
+          <a href="index.html" class="back-button"><i data-lucide="x"></i></a>
+          <h1><i data-lucide="lightbulb"></i> Idea Details</h1>
+        </div>
+      </div>
+
+      <!-- رسالة ترحيب -->
+      <div class="app-welcome">
+        <h3>Manage Your Idea</h3>
+        <p>Edit, publish, or share your idea with communities.</p>
+      </div>
+
+      <!-- ✅ محتوى الفكرة -->
+      <div class="tab-content active">
+        <div class="ideas-header">
+          <h2 id="ideaTitle">Idea Details</h2>
+          <div class="ideas-actions">
+            <!-- أزرار التعديل والإلغاء -->
+            <button id="editBtn" class="secondary-button"><i data-lucide="pencil"></i> Edit</button>
+            <button id="closeEditBtn" class="secondary-button" style="display: none;"><i data-lucide="x"></i> Cancel</button>
+          </div>
+        </div>
+
+        <!-- 🧾 تفاصيل الفكرة -->
+        <div class="idea-details-container">
+          <!-- تصنيف الفكرة -->
+          <div class="idea-label"><i data-lucide="tag"></i> Topic</div>
+          <input type="text" id="ideaTopic" class="idea-input" disabled />
+
+          <!-- المحتوى النصي للفكرة -->
+          <div class="idea-label"><i data-lucide="align-left"></i> Content</div>
+          <textarea id="ideaContent" rows="6" class="idea-textarea" disabled></textarea>
+
+          <!-- أدوات الذكاء الاصطناعي -->
+          <div class="ai-actions">
+            <button id="sendToAIButton" class="secondary-button tooltip">
+              <i data-lucide="sparkles"></i> Enhance with AI
+              <span class="tooltip-text">Send your idea to AI for improvement suggestions</span>
+            </button>
+            <button id="mindMapTextBtn" class="secondary-button tooltip">
+              <i data-lucide="git-branch"></i> Generate Mind Map
+              <span class="tooltip-text">Create a mind map visualization of your idea</span>
+            </button>
+          </div>
+
+          <!-- مخرجات الخريطة الذهنية -->
+          <div id="mindmap-text-output" style="display: none;"></div>
+
+          <!-- المرفقات -->
+          <div class="idea-label"><i data-lucide="paperclip"></i> Attachments</div>
+          <div id="attachmentsContainer" class="attachments-list"></div>
+          <input type="file" id="fileInput" class="file-input" multiple accept="image/*,.pdf,.doc,.docx,.txt">
+          <button id="addFileBtn" class="secondary-button add-file-btn"><i data-lucide="plus"></i> Add File</button>
+
+          <!-- صورة الفكرة (إن وجدت) -->
+          <div id="ideaImageContainer" class="idea-image-container">
+            <img id="ideaImage" alt="Idea Image" class="idea-image"/>
+          </div>
+
+          <!-- النشر إلى مجتمع -->
+          <div class="idea-label"><i data-lucide="share-2"></i> Publish to Community</div>
+          <select id="communitySelect" class="idea-select">
+            <option value="">-- Select Community --</option>
+          </select>
+
+          <!-- معاينة قبل النشر -->
+          <div id="publishPreviewContainer" class="publish-preview-container">
+            <div class="idea-label"><i data-lucide="eye"></i> Preview</div>
+            <div class="idea-preview-card">
+              <div class="preview-header">
+                <h3 id="previewTitle">Topic Title</h3>
+              </div>
+              <div id="previewContent" class="preview-content"></div>
+              <div id="previewAttachments" class="preview-attachments"></div>
+            </div>
+          </div>
+
+          <!-- أزرار النشر والمعاينة -->
+          <div class="idea-action-buttons">
+            <button id="previewBtn" class="secondary-button"><i data-lucide="eye"></i> Preview</button>
+            <button id="publishBtn" class="primary-button"><i data-lucide="send"></i> Publish</button>
+          </div>
+
+          <!-- تنبيه للمستخدم حول حقوق النشر -->
+          <div class="idea-disclaimer">
+            <h3><i data-lucide="alert-triangle"></i> Important Note</h3>
+            <p>We currently do not provide copyright protection. By publishing your idea to a community, you agree that you are sharing it at your own risk.</p>
+          </div>
+        </div>
+
+        <!-- أزرار الحفظ عند التعديل -->
+        <div class="idea-save-controls" id="saveControls">
+          <button id="cancelBtn" class="secondary-button"><i data-lucide="x"></i> Cancel</button>
+          <button id="saveBtn" class="primary-button"><i data-lucide="save"></i> Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 💬 أيقونة المساعد الذكي -->
+  <div id="chatbot-icon" class="tooltip">
+    <i data-lucide="message-circle"></i>
+    <span class="tooltip-text">Chat with AI about your ideas</span>
+  </div>
+
+  <!-- 🧠 واجهة الشات بوت -->
+  <div id="chatbot-container" class="hidden">
+    <div id="chatbot-header">
+      <span><i data-lucide="sparkles"></i> AI Idea Assistant</span>
+      <button id="close-btn">&times;</button>
+    </div>
+    <div id="chatbot-body">
+      <div id="chatbot-messages">
+        <div class="message bot">
+          Hi there! I'm your AI idea assistant. Share your ideas with me, and I'll help you refine and develop them.
+        </div>
+      </div>
+    </div>
+    <div id="chatbot-input-container">
+      <input type="text" id="chatbot-input" placeholder="Type your message..." />
+      <button id="send-btn">Send</button>
+      <button id="reset-btn" title="Reset conversation"><i data-lucide="refresh-cw"></i></button>
+    </div>
+  </div>
+
+  <!-- 🧠 سكريبتات الواجهة والتفاعل -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("sidebar-overlay");
+      sidebar.classList.toggle("open");
+      overlay.classList.toggle("open");
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+     // ✅ فتح القائمة عند الضغط على الزر
+  document.getElementById("sidebar-toggle").addEventListener("click", toggleSidebar)
+
+  // ✅ إغلاق القائمة عند الضغط بالخارج
+  document.getElementById("sidebar-overlay").addEventListener("click", () => {
+    document.getElementById("sidebar").classList.remove("open")
+    document.getElementById("sidebar-overlay").classList.remove("open")
+  })
+      //  زر تبديل الوضع الليلي
+      const darkModeToggle = document.createElement('button');
+      darkModeToggle.className = 'theme-toggle';
+      darkModeToggle.innerHTML = '<i data-lucide="moon"></i>';
+      darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
+      document.querySelector('.app-container').appendChild(darkModeToggle);
+
+      const savedDarkMode = localStorage.getItem('dark-mode');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedDarkMode === 'true' || (!savedDarkMode && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        darkModeToggle.innerHTML = '<i data-lucide="sun"></i>';
+      }
+
+      darkModeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('dark-mode', isDark ? 'true' : 'false');
+        darkModeToggle.innerHTML = isDark ? '<i data-lucide="sun"></i>' : '<i data-lucide="moon"></i>';
+        lucide.createIcons();
+      });
+
+      lucide.createIcons();
+    });
+
+    function updateImage(imageUrl) {
+      const ideaImage = document.getElementById("ideaImage");
+      if (imageUrl) {
+        ideaImage.src = imageUrl;
+        ideaImage.style.display = "block";
+      }
+    }
+  </script>
+
+  <!-- 🧩 تحميل منطق الفكرة -->
+  <script type="module" src="idea.js"></script>
+</body>
+</html>

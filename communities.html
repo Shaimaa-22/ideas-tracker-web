@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Communities | IdeasTracker</title>
+    <!-- ملفات التنسيق -->
+  <link rel="stylesheet" href="communities.css">
+  <link rel="stylesheet" href="style.css">
+    <!-- مكتبة الأيقونات Lucide -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+    <!-- نمط صورة المجتمع الافتراضية -->
+  <style>
+  .community-image {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f0f0f0;
+    border-radius: 8px 8px 0 0;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="150" viewBox="0 0 300 150"%3E%3Crect fill="%23f0f0f0" width="300" height="150"/%3E%3Ctext fill="%23999" font-family="Arial" font-size="18" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle"%3ECommunity%3C/text%3E%3C/svg%3E');
+  }
+</style>
+</head>
+<body>
+   <!-- شريط التنقل الرئيسي -->
+  <nav class="navbar">
+    <div class="logo">IdeasTracker</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="communities.html">Communities</a></li>
+      <li><a href="create-community.html">New Community</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="my-communities.html">My Communities</a></li>
+      <li><a href="login.html">Logout</a></li>
+      
+
+    </ul>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </nav>
+    <!-- القائمة الجانبية (تظهر في الموبايل) -->
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <a href="index.html">Home</a>
+    <a href="communities.html">Communities</a>
+    <a href="create-community.html">New Community</a>
+    <a href="profile.html">Profile</a>
+    <a href="my-communities.html">My Communities</a>
+    <a href="login.html">Logout</a>
+</div>
+  <!-- المحتوى الرئيسي -->
+  <main>
+        <!-- ترويسة الصفحة -->
+
+    <header class="page-header">
+      <div>
+        <h1>Explore Communities</h1>
+        <p>Join communities that match your interests</p>
+      </div>
+            <!-- زر إنشاء مجتمع جديد -->
+      <button class="primary-button" onclick="window.location.href='create-community.html'">
+        <i data-lucide="plus"></i> Create New Community
+      </button>
+    </header>
+        <!-- شريط البحث عن المجتمعات -->
+    <div class="search-bar">
+      <i data-lucide="search"></i>
+      <input type="text" id="communitySearch" placeholder="Search communities...">
+    </div>
+   <!-- المكان اللي بنعرض فيه المجتمعات -->
+    <div id="communityList" class="community-grid">
+     <!-- يتم تعبئتها ديناميكياً من JavaScript -->
+    </div>
+  </main>
+  <!-- سكريبت التنقل في الموبايل -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("open");
+    }
+   // عند تحميل الصفحة، بنفعّل الأيقونات ونضيف فلتر للبحث
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+            const searchInput = document.getElementById('communitySearch');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const term = e.target.value.toLowerCase();
+          document.querySelectorAll('.community-card').forEach(card => {
+            const name = card.querySelector('h3').textContent.toLowerCase();
+            card.style.display = name.includes(term) ? '' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+  <!-- سكريبت لتحميل المجتمعات -->
+  <script type="module" src="communities.js"></script>
+</body>
+</html>

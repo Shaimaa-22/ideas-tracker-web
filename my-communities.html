@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Communities | IdeasTracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">IdeasTracker</div>
+    <ul class="nav-links">
+         <li><a href="index.html">Home</a></li>
+      <li><a href="communities.html">Communities</a></li>
+      <li><a href="create-community.html">New Community</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="my-communities.html">My Communities</a></li>
+      <li><a href="login.html">Logout</a></li>
+      
+
+    </ul>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </nav>
+  
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <a href="index.html">Home</a>
+    <a href="communities.html">Communities</a>
+    <a href="create-community.html">New Community</a>
+    <a href="profile.html">Profile</a>
+    <a href="my-communities.html">My Communities</a>
+    <a href="login.html">Logout</a>
+    
+  </div>
+  <main class="container">
+    <h1>My Communities</h1>
+    <div id="myCommunitiesContainer"></div>
+  </main>
+  <script src="my-communities.js" type="module"></script>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar")
+      sidebar.classList.toggle("open")
+    }
+  </script>
+</body>
+</html>

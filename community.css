@@ -1,0 +1,364 @@
+/* تنسيق ترويسة المجتمع */
+.community-header {
+  background: linear-gradient(135deg, #9794d5e9 0%, #7c3aed 100%);
+  color: white;
+  padding: 2rem 1rem;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.community-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.community-description {
+  margin-top: 0.5rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* الحاوية الرئيسية للأفكار */
+.ideas-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+/* كرت الفكرة */
+.idea-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.idea-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.idea-title {
+  margin: 0 0 0.5rem 0;
+  color: #1e293b;
+  font-size: 1.25rem;
+}
+
+.idea-content {
+  color: #64748b;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.idea-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.view-btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-btn:hover {
+  background: #4338ca;
+}
+/* حالات التحميل أو لا توجد أفكار */
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  min-height: 200px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #64748b;
+}
+/* استجابة التصميم للموبايل */
+@media (max-width: 768px) {
+  .community-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .community-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .ideas-container {
+    padding: 0 0.75rem;
+  }
+
+  .idea-card {
+    padding: 1.25rem;
+  }
+}
+/* صورة وصاحب الفكرة */
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+}
+
+.avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+}
+
+.idea-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.idea-date {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+/* صورة الفكرة */
+.idea-image {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.idea-detail-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.idea-header-section {
+  margin-bottom: 1.5rem;
+}
+
+.idea-header-section h2 {
+  font-size: 1.75rem;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+}
+
+.author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  opacity: 0.8;
+}
+
+.idea-content-section {
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.idea-content-section p {
+  margin-bottom: 1rem;
+}
+.idea-image-container {
+  margin: 1.5rem 0;
+  text-align: center;
+  display: none; 
+}
+
+.idea-detail-image {
+  max-width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  max-height: 500px;
+  object-fit: contain;
+}
+
+.comment-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.comments-section {
+  margin-bottom: 2rem;
+}
+
+.comment {
+  background-color: var(--input);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.comment:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.comment p {
+  margin-bottom: 0.75rem;
+}
+
+.comment-meta {
+  font-size: 0.875rem;
+  color: var(--foreground);
+  opacity: 0.7;
+}
+
+.my-comment {
+  background-color: rgba(99, 102, 241, 0.1);
+  border-left: 3px solid var(--primary);
+}
+
+.comment-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  justify-content: flex-end;
+}
+
+.edit-comment-btn,
+.delete-comment-btn {
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.edit-comment-btn {
+  color: var(--primary);
+}
+
+.delete-comment-btn {
+  color: var(--danger);
+}
+
+.edit-comment-btn:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.delete-comment-btn:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.comment-form {
+  margin-top: 1.5rem;
+}
+
+.comment-form textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--input);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  min-height: 100px;
+}
+
+.comment-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.submit-comment-btn {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+.submit-comment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+}
+
+.submit-comment-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(99, 102, 241, 0.4);
+}
+
+.no-comments {
+  text-align: center;
+  color: var(--foreground);
+  opacity: 0.7;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .idea-detail-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+
+  .idea-header-section h2 {
+    font-size: 1.5rem;
+  }
+}

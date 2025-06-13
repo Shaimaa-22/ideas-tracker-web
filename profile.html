@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Join and explore developer communities, share ideas, and collaborate with like-minded people.">
+  <title>Profile & My Ideas | IdeasTracker</title>
+  <link rel="stylesheet" href="profile.css">
+  
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">IdeasTracker</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="communities.html">Communities</a></li>
+      <li><a href="create-community.html">New Community</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="my-communities.html">My Communities</a></li>
+      <li><a href="login.html">Logout</a></li>
+      
+
+    </ul>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </nav>
+  
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <a href="index.html">Home</a>
+    <a href="communities.html">Communities</a>
+    <a href="create-community.html">New Community</a>
+    <a href="profile.html">Profile</a>
+    <a href="my-communities.html">My Communities</a>
+    <a href="login.html">Logout</a>
+</div>
+
+
+  <div class="profile-container">
+    <main class="profile-section">
+      <h1>User Profile</h1>
+      <div class="profile-info">
+        <div class="user-avatar" id="userInitial">...</div>
+        <p><strong>Name:</strong> <span id="userName">...</span></p>
+        <p><strong>Email:</strong> <span id="userEmail">...</span></p>
+      </div>
+
+      <div class="profile-actions">
+        <button id="editProfileBtn" class="secondary-button">Edit Profile</button>
+        <button id="deleteAccountBtn" class="danger-button">Delete Account</button>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+          <i data-lucide="moon"></i>
+        </button>
+      </div>
+    </main>
+
+    <section class="ideas-section">
+      <h2>My Published Ideas in Communities</h2>
+      <div id="ideasContainer">
+        <p>Loading your ideas...</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="confirmDelete" class="confirm-dialog">
+    <p>Are you sure you want to delete your account? This cannot be undone.</p>
+    <div class="dialog-buttons">
+      <button class="yes" id="confirmYes">Yes</button>
+      <button class="no" id="confirmNo">Cancel</button>
+    </div>
+  </div>
+  <footer>
+        <p>&copy; 2025 IdeasTracker. All rights reserved.</p>
+    </footer>
+</body>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script type="module" src="profile.js"></script>
+</html>

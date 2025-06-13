@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Join Requests | IdeasTracker</title>
+  <link rel="stylesheet" href="style.css"> <!-- ملف التنسيق (CSS) -->
+</head>
+<body>
+    <!-- النافبار اللي فوق -->
+  <nav class="navbar">
+    <div class="logo">IdeasTracker</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="communities.html">Communities</a></li>
+      <li><a href="create-community.html">New Community</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="my-communities.html">My Communities</a></li>
+      <li><a href="login.html">Logout</a></li>
+    </ul>
+    <!-- زر القائمة الجانبية (للشاشات الصغيرة) -->
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </nav>
+  <!-- القائمة الجانبية -->
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <a href="index.html">Home</a>
+    <a href="communities.html">Communities</a>
+    <a href="create-community.html">New Community</a>
+    <a href="profile.html">Profile</a>
+    <a href="my-communities.html">My Communities</a>
+    <a href="login.html">Logout</a>
+  </div>
+
+  <!-- سكريبت فتح وإغلاق السايدبار -->
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+  </script>
+
+  <!-- العنوان الرئيسي -->
+  <header>
+    <h1 id="communityName">Loading community name...</h1>
+  </header>
+
+  <main>
+    <!-- قسم الأعضاء -->
+    <section>
+      <h2>Members</h2>
+      <div id="membersContainer">
+        <p>Loading members...</p> <!-- لما يبلش يحمل الأعضاء -->
+      </div>
+    </section>
+
+    <!-- قسم طلبات الانضمام -->
+    <section>
+      <h2>Join Requests</h2>
+      <div id="requestsContainer">
+        <p>Loading requests...</p><!-- لما يبلش يحمل الطلبات -->
+      </div>
+    </section>
+  </main>
+  
+  <!-- هون ملف الجافاسكربت اللي فيه كل اللوجيك -->
+  <script type="module" src="requests.js"></script>
+</body>
+</html>

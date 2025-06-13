@@ -1,0 +1,389 @@
+/* ===== Global Styles & Variables ===== */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --primary-light: #a5b4fc;
+  --secondary: #10b981;
+  --secondary-dark: #059669;
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --success: #10b981;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #1e293b;
+  --border: #e2e8f0;
+  --input: #f8fafc;
+  --ring: rgba(99, 102, 241, 0.3);
+  --radius: 1rem;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark {
+  --primary: #818cf8;
+  --primary-dark: #6366f1;
+  --primary-light: #c7d2fe;
+  --secondary: #34d399;
+  --secondary-dark: #10b981;
+  --accent: #fbbf24;
+  --accent-dark: #f59e0b;
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: rgba(129, 140, 248, 0.3);
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Header Styles ===== */
+.main-header {
+  background-color: var(--primary);
+  color: white;
+  padding: 1.5rem 0;
+  box-shadow: var(--shadow-md);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: var(--primary-dark);
+}
+
+.main-nav a.active {
+  background-color: white;
+  color: var(--primary);
+}
+
+/* ===== Main Content Styles ===== */
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  flex: 1;
+}
+
+.section-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.section-header h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background: var(--primary);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+.section-content {
+  padding: 0 1rem;
+}
+
+/* ===== About Section ===== */
+.about-section .lead {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* ===== Team Section ===== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-member {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.member-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  border: 3px solid var(--primary-light);
+}
+
+.team-member h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.position {
+  color: var(--secondary);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.bio {
+  font-size: 0.9rem;
+  color: var(--card-foreground);
+}
+
+/* ===== Values Section ===== */
+.values-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.values-list li {
+  background-color: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.values-list h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+/* ===== Footer Styles ===== */
+.main-footer {
+  background-color: var(--primary);
+  color: white;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+.copyright {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .main-nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* ===== Contact Form Styles ===== */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 5px var(--primary);
+}
+
+.contact-form button {
+  background-color: var(--primary);
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: var(--primary-dark);
+}
+
+.contact-form button:disabled {
+  background-color: var(--primary-light);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* ===== Messages Styles ===== */
+#msg {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.msg-error {
+  color: var(--danger);
+}
+
+.msg-success {
+  color: var(--success);
+}
+
+/* ===== Accessibility & Mobile Improvements ===== */
+.contact-form input,
+.contact-form textarea,
+.contact-form button {
+  font-size: 1rem;
+  min-height: 44px; /* for better tap targets on mobile */
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Optional: Add smooth transitions to input fields */
+.contact-form input,
+.contact-form textarea {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}

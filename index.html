@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="data:,">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Join and explore developer communities, share ideas, and collaborate with like-minded people.">
+  <title>IdeasTracker - Voice Ideas</title>
+    <!--  تحميل الخطوط والأيقونات والتنسيقات -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <!-- ☰ زر فتح القائمة الجانبية -->
+  <div id="sidebar-toggle" class="tooltip">
+    <i data-lucide="menu"></i>
+    <span class="tooltip-text">Open Menu</span>
+  </div>
+  <!-- القائمة الجانبية -->
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-menu">
+      <a href="index.html" class="menu-item active">
+        <span>Home</span>
+      </a>
+      <a href="communities.html" class="menu-item">
+        <span>Communities</span>
+      </a>
+      <a href="my-communities.html" class="menu-item">
+        <span>My Communities</span>
+      </a>
+      <a href="create-community.html" class="menu-item">
+        <span>Create Community</span>
+      </a>
+       <a href="profile.html" class="menu-item">
+        <span>profile</span>
+      </a>
+    </div>
+  </div>
+  <!-- تراكب لإغلاق القائمة عند الضغط خارجها -->
+  <div id="sidebar-overlay" class="sidebar-overlay"></div>
+  <!--  المحتوى الرئيسي للصفحة -->
+  <div class="container">
+    <div class="app-container">
+            <!--عنوان الصفحة -->
+      <div class="app-header">
+        <h1><i data-lucide="brain-circuit"></i> IdeasTracker</h1>
+        <button id="logoutButton" class="secondary-button">
+          <i data-lucide="log-out"></i>
+          Logout
+        </button>
+      </div>
+      
+      <div class="tabs">
+        <button class="tab-button active" data-tab="recorder">
+          <i data-lucide="mic"></i>
+          Record Idea
+        </button>
+        <button class="tab-button" data-tab="ideas">
+          <i data-lucide="lightbulb"></i>
+          My Ideas
+        </button>
+        <button id="groupedIdeasTab" class="tab-button">
+          <i data-lucide="folder"></i>
+          Grouped by Topic
+        </button>
+      </div>
+      <div class="tab-content active" id="recorder-tab">
+        <h1>Voice Ideas</h1>
+        <p class="subtitle">Record your ideas using voice input in English or Arabic</p>
+
+        <div class="button-group">
+          <button id="recordButton" class="primary-button tooltip">
+            <i data-lucide="mic"></i>
+            Start Recording
+            <span class="tooltip-text">Click to start recording your voice idea</span>
+          </button>
+          <button id="languageButton" class="secondary-button tooltip">
+            <i data-lucide="globe-2"></i>
+            <span id="languageText">English</span>
+            <span class="tooltip-text">Switch between English and Arabic</span>
+          </button>
+        </div>
+
+        <div class="transcript-container">
+          <div class="status-bar">
+            <div class="recording-time">
+              <div id="recordingIndicator" class="recording-indicator"></div>
+              <span id="recordingTime">00:00</span>
+            </div>
+            <div id="status">Ready to record</div>
+          </div>
+
+          <textarea
+            id="transcript"
+            placeholder="Your transcribed text will appear here..."
+            maxlength="5000"
+          ></textarea>
+
+          <span class="character-count">
+            <span id="charCount">0</span>/5000
+          </span>
+
+          <div class="ai-actions">
+            <button id="sendToAIButton" class="secondary-button tooltip">
+              <i data-lucide="sparkles"></i>
+              Enhance with AI
+              <span class="tooltip-text">Send your idea to AI for improvement suggestions</span>
+            </button>
+            <button id="mindMapTextBtn" class="secondary-button tooltip">
+              <i data-lucide="git-branch"></i>
+              Generate Mind Map
+              <span class="tooltip-text">Create a mind map visualization of your idea</span>
+            </button>
+          </div>
+
+          <div id="mindmap-text-output" style="display: none;"></div>
+        </div>
+
+        <div class="action-buttons">
+          <button id="clearButton" class="icon-button tooltip" title="Clear text">
+            <i data-lucide="trash"></i>
+            <span class="tooltip-text">Clear the current text</span>
+          </button>
+          <button id="saveButton" class="icon-button tooltip" title="Save idea">
+            <i data-lucide="save"></i>
+            <span class="tooltip-text">Save this idea to your collection</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="tab-content" id="ideas-tab">
+        <div class="ideas-header">
+          <h1>My Ideas</h1>
+          <div class="ideas-actions">
+            <button class="secondary-button tooltip" id="refreshIdeas">
+              <i data-lucide="refresh-cw"></i>
+              Refresh
+              <span class="tooltip-text">Refresh your ideas list</span>
+            </button>
+          </div>
+        </div>
+        <div id="ideasList" class="ideas-list"></div>
+      </div>
+
+      <div class="tab-content" id="groupedIdeasSection">
+        <div id="groupedIdeasContainer" class="grouped-ideas"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="chatbot-icon" class="tooltip">
+    <i data-lucide="message-circle"></i>
+    <span class="tooltip-text">Chat with AI about your ideas</span>
+  </div>
+  <div id="chatbot-container" class="hidden">
+    <div id="chatbot-header">
+      <span><i data-lucide="sparkles"></i> AI Idea Assistant</span>
+      <button id="close-btn">&times;</button>
+    </div>
+    <div id="chatbot-body">
+      <div id="chatbot-messages">
+        <div class="message bot">
+          Hi there! I'm your AI idea assistant. Share your ideas with me, and I'll help you refine and develop them.
+        </div>
+      </div>
+    </div>
+    <div id="chatbot-input-container">
+      <input type="text" id="chatbot-input" placeholder="Type your message..." />
+      <button id="send-btn">Send</button>
+      <button id="reset-btn" title="Reset conversation"><i data-lucide="refresh-cw"></i></button>
+    </div>
+  </div>
+
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="firestore-logic.js"></script>
+  <script type="module" src="app.js"></script>
+  <script type="module">
+    import { renderGroupedIdeas } from './grouped-ideas.js';
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+  
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const tabName = button.dataset.tab;
+  
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+  
+          tabContents.forEach(tab => tab.classList.remove('active'));
+  
+          if (tabName === 'recorder') {
+            document.getElementById('recorder-tab').classList.add('active');
+          } else if (tabName === 'ideas') {
+            document.getElementById('ideas-tab').classList.add('active');
+          }
+        });
+      });
+  
+      document.getElementById("groupedIdeasTab").addEventListener("click", () => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        document.getElementById("groupedIdeasTab").classList.add("active");
+  
+        tabContents.forEach(tab => tab.classList.remove('active'));
+        document.getElementById("groupedIdeasSection").classList.add("active");
+  
+        renderGroupedIdeas();
+      });
+    });
+  </script>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Dark mode toggle
+    const darkModeToggle = document.createElement('button');
+    darkModeToggle.className = 'theme-toggle';
+    darkModeToggle.innerHTML = '<i data-lucide="moon"></i>';
+    darkModeToggle.setAttribute('aria-label', 'Toggle dark mode');
+    document.querySelector('.app-container').appendChild(darkModeToggle);
+
+    const savedDarkMode = localStorage.getItem('dark-mode');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedDarkMode === 'true' || (!savedDarkMode && prefersDark)) {
+      document.documentElement.classList.add('dark');
+      darkModeToggle.innerHTML = '<i data-lucide="sun"></i>';
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('dark-mode', 'true');
+        darkModeToggle.innerHTML = '<i data-lucide="sun"></i>';
+      } else {
+        localStorage.setItem('dark-mode', 'false');
+        darkModeToggle.innerHTML = '<i data-lucide="moon"></i>';
+      }
+      lucide.createIcons();
+    });
+
+    lucide.createIcons();
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const iconButtons = document.querySelectorAll('button:not([aria-label])');
+    iconButtons.forEach(button => {
+      if (!button.textContent.trim() && button.querySelector('[data-lucide]')) {
+        const iconName = button.querySelector('[data-lucide]').getAttribute('data-lucide');
+        button.setAttribute('aria-label', iconName.replace(/-/g, ' '));
+      }
+    });
+    
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+      if (!input.getAttribute('aria-label') && !input.getAttribute('aria-labelledby')) {
+        const placeholder = input.getAttribute('placeholder');
+        if (placeholder) {
+          input.setAttribute('aria-label', placeholder);
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>

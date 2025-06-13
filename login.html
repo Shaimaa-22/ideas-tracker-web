@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IdeasTracker | Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login-style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="login.js"></script>
+</head>
+<body>
+  <div class="bg-animation">
+    <div class="bg-gradient"></div>
+    <div class="bg-shape bg-shape-1"></div>
+    <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
+  </div>
+
+  <div class="container">
+    <div class="login-container">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i data-lucide="moon"></i>
+      </button>
+
+      <div class="login-logo">
+        <div class="logo-circle">
+          <i data-lucide="brain-circuit"></i>
+        </div>
+        <h1>IdeasTracker</h1>
+      </div>
+
+      <form class="login-form" id="loginForm" autocomplete="on">
+        <h2 id="form-title" class="form-title">Login to Your Account</h2>
+
+        <div class="error-message" id="error"></div>
+
+        <div class="form-group" id="name-group" style="display: none;">
+          <label for="username">Your Name</label>
+          <div class="input-with-icon">
+            <input type="text" id="username" class="form-input" placeholder="Enter your name" autocomplete="name" />
+            <i data-lucide="user" class="input-icon" size="18"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-with-icon">
+            <input type="email" id="email" class="form-input" placeholder="Enter your email" autocomplete="email" />
+            <i data-lucide="mail" class="input-icon" size="18"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-with-icon">
+            <input type="password" id="password" class="form-input" placeholder="Enter your password" autocomplete="current-password" />
+            <i data-lucide="lock" class="input-icon" size="18"></i>
+          </div>
+        </div>
+
+        <button type="submit" id="authButton" class="login-button">
+          <i data-lucide="log-in"></i>
+          <span>Login</span>
+        </button>
+
+        <div class="toggle-text">
+          <span id="toggleText" class="toggle-link">Register</span>
+        </div>
+
+        <div class="back-to-landing">
+          <a href="landing.html" class="back-link">
+            <i data-lucide="arrow-left"></i>
+            Back to home
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">
+    <i id="toastIcon" data-lucide="info" class="toast-icon"></i>
+    <span id="toastMsg">Message</span>
+  </div>
+</body>
+</html>

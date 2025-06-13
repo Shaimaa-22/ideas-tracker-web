@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IdeasTracker - Capture, Enhance, Share</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="landing-header">
+    <div class="logo">
+      <i data-lucide="brain-circuit"></i>
+      <h1>IdeasTracker</h1>
+    </div>
+    <div class="header-actions">
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <i data-lucide="moon"></i>
+      </button>
+    </div>
+  </header>
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Transform Your Ideas Into Reality</h1>
+      <p class="hero-description">
+        Capture, enhance, and share your ideas with a powerful platform designed for creative thinkers.
+      </p>
+      
+      <div class="cta-buttons">
+        <a href="login.html" class="primary-button">
+          <i data-lucide="log-in"></i>
+          Get Started
+        </a>
+        <a href="#journey" class="secondary-button">
+          <i data-lucide="compass"></i>
+          Explore
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-image">
+      <div class="app-preview">
+        <div class="preview-header">
+          <div class="preview-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="preview-content">
+          <div class="preview-item">
+            <i data-lucide="mic"></i>
+            <div class="preview-text">
+              <div class="preview-line"></div>
+              <div class="preview-line short"></div>
+            </div>
+          </div>
+          <div class="preview-item">
+            <i data-lucide="git-branch"></i>
+            <div class="preview-text">
+              <div class="preview-line"></div>
+              <div class="preview-line short"></div>
+            </div>
+          </div>
+          <div class="preview-item">
+            <i data-lucide="sparkles"></i>
+            <div class="preview-text">
+              <div class="preview-line"></div>
+              <div class="preview-line short"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey" class="journey-section">
+    <h2>Your Idea Journey</h2>
+    <p class="journey-description">Follow the path from concept to collaboration</p>
+    
+    <div class="journey-path">
+      <div class="journey-step" id="step1">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Capture</h3>
+          <p>Record your thoughts in English or Arabic using voice input</p>
+          <button class="step-button" onclick="showStepDetails('capture')">
+            <i data-lucide="mic"></i> Learn More
+          </button>
+        </div>
+      </div>
+      
+      <div class="journey-connector"></div>
+      
+      <div class="journey-step" id="step2">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Visualize</h3>
+          <p>Transform your ideas into structured mind maps</p>
+          <button class="step-button" onclick="showStepDetails('visualize')">
+            <i data-lucide="git-branch"></i> Learn More
+          </button>
+        </div>
+      </div>
+      
+      <div class="journey-connector"></div>
+      
+      <div class="journey-step" id="step3">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Enhance</h3>
+          <p>Let AI help refine and expand your ideas</p>
+          <button class="step-button" onclick="showStepDetails('enhance')">
+            <i data-lucide="sparkles"></i> Learn More
+          </button>
+        </div>
+      </div>
+      
+      <div class="journey-connector"></div>
+      
+      <div class="journey-step" id="step4">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Share</h3>
+          <p>Collaborate with others in topic-based communities</p>
+          <button class="step-button" onclick="showStepDetails('share')">
+            <i data-lucide="users"></i> Learn More
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="step-details" class="step-details">
+      <div class="step-close" onclick="hideStepDetails()">
+        <i data-lucide="x"></i>
+      </div>
+      
+      <div class="step-detail-content" id="capture-details">
+        <h3>Capture Your Ideas Effortlessly</h3>
+        <div class="detail-grid">
+          <div class="detail-image">
+            <i data-lucide="mic"></i>
+          </div>
+          <div class="detail-text">
+            <p>Speak your thoughts and watch them transform into text instantly. Support for both English and Arabic means you can express yourself in the language you're most comfortable with.</p>
+            <ul>
+              <li>Voice-to-text recording in multiple languages</li>
+              <li>Automatic transcription with high accuracy</li>
+              <li>Edit and refine your ideas after recording</li>
+              <li>Save ideas for later development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="step-detail-content" id="visualize-details">
+        <h3>Visualize Your Thinking</h3>
+        <div class="detail-grid">
+          <div class="detail-image">
+            <i data-lucide="git-branch"></i>
+          </div>
+          <div class="detail-text">
+            <p>See your ideas come to life as interactive mind maps. Organize complex thoughts into clear, structured visualizations that help you understand connections and develop your thinking.</p>
+            <ul>
+              <li>Automatic mind map generation</li>
+              <li>Hierarchical organization of concepts</li>
+              <li>Visual representation of relationships</li>
+              <li>Easy navigation of complex ideas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="step-detail-content" id="enhance-details">
+        <h3>Enhance with AI</h3>
+        <div class="detail-grid">
+          <div class="detail-image">
+            <i data-lucide="sparkles"></i>
+          </div>
+          <div class="detail-text">
+            <p>Our AI assistant helps refine and develop your ideas. Get suggestions, improvements, and creative extensions that take your thinking to the next level.</p>
+            <ul>
+              <li>Intelligent idea refinement</li>
+              <li>Suggestion of related concepts</li>
+              <li>Identification of gaps in thinking</li>
+              <li>Creative expansion of core ideas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="step-detail-content" id="share-details">
+        <h3>Share & Collaborate</h3>
+        <div class="detail-grid">
+          <div class="detail-image">
+            <i data-lucide="users"></i>
+          </div>
+          <div class="detail-text">
+            <p>Join communities of like-minded thinkers or create your own. Share ideas, get feedback, and collaborate on projects in a supportive environment.</p>
+            <ul>
+              <li>Topic-based communities</li>
+              <li>Real-time commenting and feedback</li>
+              <li>Public or private sharing options</li>
+              <li>Build on others' ideas with proper attribution</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="final-cta">
+    <h2>Ready to Transform Your Ideas?</h2>
+    <p>Join thousands of creative thinkers who are already using IdeasTracker to capture, enhance, and share their best ideas.</p>
+    <a href="login.html" class="primary-button">
+      <i data-lucide="rocket"></i>
+      Get Started Now
+    </a>
+  </section>
+
+  <footer class="landing-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i data-lucide="brain-circuit"></i>
+        <span>IdeasTracker</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="about.html">About Us</a>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 IdeasTracker. All rights reserved.
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    lucide.createIcons();
+    
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add('dark');
+      themeToggle.innerHTML = '<i data-lucide="sun"></i>';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+        themeToggle.innerHTML = '<i data-lucide="sun"></i>';
+      } else {
+        localStorage.setItem('theme', 'light');
+        themeToggle.innerHTML = '<i data-lucide="moon"></i>';
+      }
+      
+      lucide.createIcons();
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  });
+
+  function showStepDetails(step) {
+    document.querySelectorAll('.step-detail-content').forEach(el => {
+      el.style.display = 'none';
+    });
+    
+    document.getElementById(`${step}-details`).style.display = 'block';
+    document.getElementById('step-details').classList.add('active');
+    
+    document.querySelectorAll('.journey-step').forEach(el => {
+      el.classList.remove('active');
+    });
+    
+    if (step === 'capture') document.getElementById('step1').classList.add('active');
+    if (step === 'visualize') document.getElementById('step2').classList.add('active');
+    if (step === 'enhance') document.getElementById('step3').classList.add('active');
+    if (step === 'share') document.getElementById('step4').classList.add('active');
+  }
+
+  function hideStepDetails() {
+    document.getElementById('step-details').classList.remove('active');
+    
+    document.querySelectorAll('.journey-step').forEach(el => {
+      el.classList.remove('active');
+    });
+  }
+</script>
+</body>
+</html>

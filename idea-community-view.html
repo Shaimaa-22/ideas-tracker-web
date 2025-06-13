@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Idea View | IdeasTracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="community.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <!-- زر الرجوع إلى الصفحة السابقة مع استرجاع موقع التمرير -->
+  <button class="close-btn" onclick="goBack()">×</button>
+<!--  عرض تفاصيل الفكرة -->
+  <section class="idea-detail-container">
+    <div class="idea-header-section">
+      <h2 id="ideaTitle">Idea Title</h2>
+      <div id="authorInfo" class="author-info">
+        <div class="avatar-placeholder"><i data-lucide="user"></i></div>
+        <span>Loading author info...</span>
+      </div>
+    </div>
+  <!-- محتوى الفكرة -->
+
+    <div id="ideaContent" class="idea-content-section">Loading content...</div>
+      <!-- صورة الفكرة (اختياري) -->
+        <div id="ideaImageContainer" class="idea-image-container">
+    </div>
+  <!--  قسم التعليقات -->
+    <hr class="comment-divider" />
+    
+    <h3>Comments</h3>
+    <div id="commentsContainer" class="comments-section">Loading comments...</div>
+  <!--نموذج إضافة تعليق -->
+    <div class="comment-form">
+      <textarea id="newComment" rows="3" placeholder="Write your comment..."></textarea>
+      <button id="submitComment" class="submit-comment-btn">
+        <i data-lucide="send"></i> Send
+      </button>
+    </div>
+  </section>
+
+  <script type="module" src="idea-community-view.js"></script>
+  <script>
+    function goBack() {
+      const previousScroll = sessionStorage.getItem("scrollPosition");
+      window.history.back();
+      if (previousScroll) {
+        setTimeout(() => window.scrollTo(0, parseInt(previousScroll)), 300);
+      }
+    }
+    sessionStorage.setItem("scrollPosition", window.scrollY);
+  </script>
+</body>
+</html>

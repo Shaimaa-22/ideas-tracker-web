@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New Community | IdeasTracker</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <!-- شريط التنقل العلوي -->
+    <nav class="navbar">
+    <div class="logo">IdeasTracker</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="communities.html">Communities</a></li>
+      <li><a href="create-community.html">New Community</a></li>
+      <li><a href="profile.html">Profile</a></li>
+      <li><a href="my-communities.html">My Communities</a></li>
+      <li><a href="login.html">Logout</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+  </nav>
+  <!-- القائمة الجانبية (بتظهر عند الضغط على ☰ في الموبايل) -->
+  <div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <a href="index.html">Home</a>
+    <a href="communities.html">Communities</a>
+    <a href="create-community.html">New Community</a>
+    <a href="profile.html">Profile</a>
+    <a href="my-communities.html">My Communities</a>
+    <a href="login.html">Logout</a>
+</div>
+  <!-- تفعيل القائمة الجانبية -->
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("open");
+    }
+  </script>
+  
+  <!-- عنوان الصفحة -->
+  <header>
+    <h1>Create a New Community</h1>
+  </header>
+  <!-- نموذج إنشاء مجتمع جديد -->
+  <main>
+    <form id="createCommunityForm">
+      <label for="name">Community Name</label>
+      <input type="text" id="name" required>
+
+      <label for="description">Description</label>
+      <textarea id="description" rows="4"></textarea>
+
+      <label for="isPrivate">Private Community?</label>
+      <select id="isPrivate">
+        <option value="false">No (Public)</option>
+        <option value="true">Yes (Private)</option>
+      </select>
+
+      <button type="submit">Create Community</button>
+    </form>
+  </main>
+  <!-- سكريبت لإنشاء المجتمع وربطه بفايربيس -->
+  <script type="module" src="create-community.js"></script>
+</body>
+</html>

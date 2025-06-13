@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact IdeasTracker support team." />
+  <title>Contact Us - IdeasTracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="main-header">
+    <div class="header-content">
+      <h1>IdeasTracker</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="landing.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <h2>Contact Us</h2>
+    <div class="divider"></div>
+
+    <div id="msg" aria-live="polite"></div>
+
+    <form id="contactForm" class="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      <div>&copy; 2025 IdeasTracker. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+    const button = form.querySelector("button");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      if (!name || !email || !message) {
+        msg.style.color = "red";
+        msg.textContent = "Please fill out all fields.";
+        return;
+      }
+
+      // رسالة واتساب
+      const phone = "972594608763"; 
+      const fullMsg = `New message from the contact form:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`;
+
+      // فتح رابط واتساب عند المستخدم
+      const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(fullMsg)}`;
+      window.open(waLink, "_blank");
+
+      msg.style.color = "green";
+      msg.textContent = "Opening WhatsApp...";
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
