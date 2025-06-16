@@ -13,7 +13,7 @@ It allows voice input, converts speech to text, and leverages GPT to rephrase an
 - Community groups & idea sharing
 - Search and filtering
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Feature        | Technology                     |
 |----------------|------------------------------- |
@@ -38,7 +38,7 @@ It allows voice input, converts speech to text, and leverages GPT to rephrase an
 
 **AI-Enhanced**:
 > “A collaborative platform where students can upload, rate, and organize class notes by topic and university course.”
-## 🚀 Future Work
+## Future Work
 
 -  AI-based mind map generation
 -  Sentiment tagging of ideas
@@ -48,8 +48,8 @@ It allows voice input, converts speech to text, and leverages GPT to rephrase an
 
 ## Developer
 
-Shaymaa – Graduation Project (2025)  
-Department of Software Engineering  
+Shaymaa – Graduation Software Project (2025)  
+Department of CE 
 
 ## License
 
